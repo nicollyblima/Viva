@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VÍVA | Garrafa Térmica Inteligente</title>
+  <link rel="icon" type="image/png" href="logo.PNG">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -190,7 +191,6 @@
       object-fit: contain;
       margin-bottom: 15px;
       border-radius: 12px;
-      transition: src 0.3s ease;
     }
 
     .color-picker {
@@ -259,7 +259,7 @@
       margin: 20px 0 30px;
     }
 
-    /* ESTILIZAÇÃO DO TEXTO DESCRITIVO */
+    /* TEXTO DESCRITIVO COMPLETO */
     .product-description-content {
       text-align: left;
       line-height: 1.7;
@@ -334,7 +334,7 @@
   <!-- CABEÇALHO -->
   <header>
     <div class="logo-container">
-      <img src="logo.png.JPG" alt="VÍVA Logo">
+      <img src="logo.PNG" alt="VÍVA Logo">
     </div>
     <nav>
       <button id="btn-sobre" class="tab-btn active" onclick="switchTab('sobre-tab', this)">Sobre Nós</button>
@@ -347,7 +347,7 @@
   <!-- ABA 1: SOBRE NÓS (TELA INICIAL) -->
   <div id="sobre-tab" class="tab-content active">
     <div class="hero-banner">
-      <img src="banner.png.JPG" alt="VÍVA Banner">
+      <img src="banner.JPG" alt="VÍVA Banner">
     </div>
 
     <div class="section-card">
@@ -406,7 +406,7 @@
       <button class="btn-back" onclick="switchTab('produtos-tab', document.getElementById('btn-produto'))">&larr; Voltar para os modelos</button>
 
       <div class="gallery-container">
-        <!-- IMAGEM PRINCIPAL (QUE TROCA AO CLICAR) -->
+        <!-- IMAGEM PRINCIPAL INTERATIVA -->
         <img id="checkout-image" class="main-view" src="rosa.png.JPG" alt="Garrafa Térmica VÍVA">
 
         <p style="font-weight: 600; font-size: 0.9rem;">Escolha/Alterne a cor:</p>
@@ -417,10 +417,10 @@
           <button id="btn-col-preta" class="color-btn btn-preta" onclick="changeMainImage('preta.png.JPG', 'Preto', this)"></button>
         </div>
 
-        <p style="font-weight: 600; font-size: 0.9rem; margin-top: 15px;">Clique nos detalhes para ampliar:</p>
+        <p style="font-weight: 600; font-size: 0.9rem; margin-top: 15px;">Clique nos detalhes para ver:</p>
         <div class="thumbs-details">
-          <img id="thumb-bocal" class="thumb-img" src="bocal.jpg.PNG" alt="Bocal Inox" onclick="changeMainImage('bocal.jpg.PNG', 'Detalhe Bocal Inox', this)">
-          <img id="thumb-carregador" class="thumb-img" src="carregador.jpg.JPG" alt="Carregador USB-C" onclick="changeMainImage('carregador.jpg.JPG', 'Detalhe Tampa/Carregador USB-C', this)">
+          <img id="thumb-bocal" class="thumb-img" src="bocal.PNG" alt="Bocal Inox" onclick="changeMainImage('bocal.PNG', 'Detalhe Bocal Inox', this)">
+          <img id="thumb-carregador" class="thumb-img" src="carregador.jpg.JPG" alt="Carregador USB-C" onclick="changeMainImage('carregador.jpg.JPG', 'Detalhe Carregador USB-C', this)">
         </div>
       </div>
 
@@ -533,7 +533,7 @@
     <p>© VÍVA. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- SCRIPT INTERATIVO DA PÁGINA -->
+  <!-- SCRIPT INTERATIVO -->
   <script>
     function switchTab(tabId, element) {
       const tabs = document.querySelectorAll('.tab-content');
@@ -567,7 +567,6 @@
       document.getElementById('checkout-image').src = imgSrc;
       document.getElementById('checkout-color-title').innerText = labelText.includes('Detalhe') ? labelText : 'Cor selecionada: ' + labelText;
 
-      // Se o elemento clicado for uma cor ou uma miniatura, atualiza a borda destacada
       if(element) {
         if(element.classList.contains('color-btn')) {
           document.querySelectorAll('.color-btn').forEach(btn => btn.classList.remove('active'));
