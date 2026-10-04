@@ -31,22 +31,23 @@
       line-height: 1.6;
     }
 
-    /* HEADER / NAVBAR */
+    /* HEADER & CABEÇALHO FIXO */
     header {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
+      background: #ffffff;
       z-index: 1000;
       border-bottom: 1px solid #e5e7eb;
-      padding: 12px 5%;
+      padding: 10px 15px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     .logo-container img {
-      height: 40px;
+      height: 32px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -54,51 +55,49 @@
 
     nav {
       display: flex;
-      gap: 15px;
+      gap: 8px;
       align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    nav a {
-      text-decoration: none;
+    .tab-btn {
+      background: none;
+      border: none;
       color: var(--text-dark);
       font-weight: 600;
-      font-size: 0.9rem;
-      transition: color 0.2s;
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
     }
 
-    nav a:hover {
-      color: var(--accent-blue);
-    }
-
-    .btn-buy-nav {
+    .tab-btn.active {
       background-color: var(--accent-blue);
       color: var(--white);
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: background 0.2s;
     }
 
-    .btn-buy-nav:hover {
-      background-color: var(--primary-blue);
+    /* SISTEMA DE OCULTAR / MOSTRAR ABAS */
+    .tab-content {
+      display: none; /* Esconde por padrão */
+      max-width: 1000px;
+      margin: 20px auto;
+      padding: 0 15px;
+      min-height: 60vh;
     }
 
-    /* CONTAINER PRINCIPAL */
-    .container {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 0 20px;
+    .tab-content.active {
+      display: block; /* Exibe só a aba selecionada */
     }
 
-    /* BANNER PRINCIPAL */
+    /* ESTILO DA ABA PRODUTO */
     .hero-banner {
       background: var(--white);
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      margin-bottom: 40px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .hero-banner img {
@@ -107,52 +106,39 @@
       display: block;
     }
 
-    /* SEÇÃO DE PRODUTO E COMPRA */
-    .product-section {
+    .product-card-main {
       background: var(--white);
       border-radius: 16px;
-      padding: 30px;
+      padding: 20px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
+      text-align: center;
     }
 
-    @media (max-width: 768px) {
-      .product-section {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .gallery { text-align: center; }
-    
     .main-view {
       width: 100%;
-      max-height: 400px;
+      max-height: 350px;
       object-fit: contain;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .color-picker {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
+      gap: 12px;
+      margin: 15px 0;
     }
 
     .color-btn {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       border: 3px solid #e5e7eb;
       cursor: pointer;
-      transition: transform 0.2s, border-color 0.2s;
     }
 
-    .color-btn:hover, .color-btn.active {
-      transform: scale(1.15);
+    .color-btn.active {
       border-color: var(--accent-blue);
+      transform: scale(1.1);
     }
 
     .btn-rosa { background-color: #e5b3b3; }
@@ -163,266 +149,212 @@
     .thumbs-details {
       display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
+      margin: 15px 0;
     }
 
     .thumbs-details img {
-      width: 75px;
-      height: 75px;
+      width: 65px;
+      height: 65px;
       object-fit: cover;
       border-radius: 8px;
       border: 1px solid #ddd;
     }
 
-    .product-details {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .product-title {
-      font-size: 2rem;
-      color: var(--primary-blue);
-      margin-bottom: 10px;
-    }
-
     .price-box { margin: 15px 0; }
-
-    .old-price {
-      text-decoration: line-through;
-      color: var(--text-muted);
-      font-size: 1.1rem;
-    }
-
-    .current-price {
-      font-size: 2.2rem;
-      color: var(--accent-blue);
-      font-weight: bold;
-    }
-
-    .installments {
-      color: #059669;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
+    .old-price { text-decoration: line-through; color: var(--text-muted); font-size: 1rem; }
+    .current-price { font-size: 2rem; color: var(--accent-blue); font-weight: bold; }
+    .installments { color: #059669; font-weight: 600; font-size: 0.9rem; }
 
     .buy-btn {
       background: var(--accent-blue);
       color: var(--white);
       border: none;
-      padding: 16px 30px;
-      font-size: 1.1rem;
+      padding: 14px 25px;
+      font-size: 1rem;
       font-weight: bold;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.3s;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
-    .buy-btn:hover { background: var(--primary-blue); }
-
-    /* SEÇÕES CARD */
+    /* ESTILO DAS OUTRAS ABAS */
     .section-card {
       background: var(--white);
       border-radius: 16px;
-      padding: 35px;
+      padding: 25px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      margin-bottom: 40px;
     }
 
     .section-title {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: var(--primary-blue);
       margin-bottom: 20px;
       text-align: center;
-      border-bottom: 2px solid var(--bg-light);
-      padding-bottom: 10px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-      align-items: center;
-    }
-
-    @media (max-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr; }
     }
 
     .grid-benefits {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
     }
 
     .benefit-item {
       background: var(--bg-light);
-      padding: 20px;
+      padding: 15px;
       border-radius: 10px;
       border-left: 4px solid var(--accent-blue);
     }
 
-    .benefit-item h4 {
-      color: var(--primary-blue);
-      margin-bottom: 8px;
-    }
-
-    /* FOOTER */
+    /* RODAPÉ */
     footer {
       background: var(--primary-blue);
       color: var(--white);
-      padding: 40px 20px 20px;
+      padding: 30px 15px;
       text-align: center;
-      margin-top: 50px;
-    }
-
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 12px;
-      }
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+      font-size: 0.85rem;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- NAVEGAÇÃO POR ABAS -->
   <header>
     <div class="logo-container">
       <img src="logo.png.JPG" alt="VÍVA Logo">
     </div>
     <nav>
-      <a href="#produto">Produto</a>
-      <a href="#sobre">Sobre Nós</a>
-      <a href="#beneficios">Benefícios</a>
-      <a href="#contato">Contato</a>
+      <button class="tab-btn active" onclick="switchTab('produto-tab')">Produto</button>
+      <button class="tab-btn" onclick="switchTab('sobre-tab')">Sobre Nós</button>
+      <button class="tab-btn" onclick="switchTab('beneficios-tab')">Benefícios</button>
+      <button class="tab-btn" onclick="switchTab('contato-tab')">Contato</button>
     </nav>
-    <a href="#produto" class="btn-buy-nav">Comprar Agora</a>
   </header>
 
-  <div class="container">
-
-    <!-- BANNER PRINCIPAL -->
+  <!-- ABA 1: PRODUTO -->
+  <div id="produto-tab" class="tab-content active">
     <div class="hero-banner">
-      <img src="banner.png.JPG" alt="VÍVA - Pequenas atitudes, grandes diferenças">
+      <img src="banner.png.JPG" alt="VÍVA Banner">
     </div>
 
-    <!-- PRODUTO -->
-    <section id="produto" class="product-section">
-      <div class="gallery">
-        <img id="main-image" class="main-view" src="rosa.png.JPG" alt="Garrafa Térmica Inteligente VÍVA">
-        
-        <p style="margin-bottom: 10px; font-weight: 600;">Selecione a sua cor:</p>
-        <div class="color-picker">
-          <button class="color-btn btn-rosa active" onclick="changeColor('rosa.png.JPG', 'Rosé')"></button>
-          <button class="color-btn btn-azul" onclick="changeColor('azul.png.PNG', 'Azul')"></button>
-          <button class="color-btn btn-branca" onclick="changeColor('branca.png.JPG', 'Branco')"></button>
-          <button class="color-btn btn-preta" onclick="changeColor('preta.png.JPG', 'Preto')"></button>
-        </div>
+    <div class="product-card-main">
+      <img id="main-image" class="main-view" src="rosa.png.JPG" alt="Garrafa VÍVA">
 
-        <p style="margin-bottom: 10px; font-weight: 600;">Detalhes do Produto:</p>
-        <div class="thumbs-details">
-          <img src="bocal.jpg.PNG" alt="Bocal Inox">
-          <img src="carregador.jpg.JPG" alt="Carregador USB-C">
-        </div>
+      <p style="font-weight: 600; font-size: 0.9rem;">Selecione a cor:</p>
+      <div class="color-picker">
+        <button class="color-btn btn-rosa active" onclick="changeColor('rosa.png.JPG', 'Rosé', this)"></button>
+        <button class="color-btn btn-azul" onclick="changeColor('azul.png.PNG', 'Azul', this)"></button>
+        <button class="color-btn btn-branca" onclick="changeColor('branca.png.JPG', 'Branco', this)"></button>
+        <button class="color-btn btn-preta" onclick="changeColor('preta.png.JPG', 'Preto', this)"></button>
       </div>
 
-      <div class="product-details">
-        <h1 class="product-title">Garrafa Térmica Inteligente VÍVA — 750ml</h1>
-        <p style="color: var(--text-muted); font-size: 1.1rem;" id="selected-color-title">Cor selecionada: Rosé</p>
-        
-        <div class="price-box">
-          <span class="old-price">De R$ 249,90</span><br>
-          <span class="current-price">R$ 199,90</span>
-          <div class="installments">ou em até 3x de R$ 66,63 sem juros no cartão</div>
-        </div>
-
-        <p>Transforme sua rotina com hidratação inteligente, tecnologia e estilo. A VÍVA combina isolamento térmico de alta performance com aviso luminoso e conexão via aplicativo para manter seu corpo na máxima performance.</p>
-
-        <button class="buy-btn">COMPRAR AGORA</button>
+      <p style="font-weight: 600; font-size: 0.9rem;">Detalhes:</p>
+      <div class="thumbs-details">
+        <img src="bocal.jpg.PNG" alt="Bocal Inox">
+        <img src="carregador.jpg.JPG" alt="USB-C">
       </div>
-    </section>
 
-    <!-- SOBRE NÓS -->
-    <section id="sobre" class="section-card">
+      <h1 style="font-size: 1.4rem; color: var(--primary-blue); margin-top: 15px;">Garrafa Térmica Inteligente VÍVA — 750ml</h1>
+      <p style="color: var(--text-muted); font-size: 0.9rem;" id="selected-color-title">Cor selecionada: Rosé</p>
+
+      <div class="price-box">
+        <span class="old-price">De R$ 249,90</span><br>
+        <span class="current-price">R$ 199,90</span>
+        <div class="installments">ou 3x de R$ 66,63 sem juros</div>
+      </div>
+
+      <p style="font-size: 0.9rem; color: var(--text-dark);">Transforme sua rotina com hidratação inteligente, tecnologia e estilo. Lembrete luminoso com sincronização via app.</p>
+
+      <button class="buy-btn">COMPRAR AGORA</button>
+    </div>
+  </div>
+
+  <!-- ABA 2: SOBRE NÓS -->
+  <div id="sobre-tab" class="tab-content">
+    <div class="section-card">
       <h2 class="section-title">Sobre Nós</h2>
-      <div class="grid-2">
-        <div>
-          <p style="margin-bottom: 15px;">A VÍVA nasceu do propósito de mostrar que pequenas atitudes geram grandes diferenças. Em meio à correria do dia a dia, percebemos que um dos cuidados mais básicos e essenciais com a saúde costuma ser deixado de lado: a hidratação adequada.</p>
-          <p>Foi a partir dessa necessidade que criamos a VÍVA — uma garrafa térmica inteligente de 750ml projetada para te lembrar de beber água no momento certo, cuidando da sua saúde e bem-estar todos os dias. Acreditamos firmemente que sua saúde também é produtividade.</p>
-        </div>
-        <div>
-          <img src="sobre.jpg.JPG" alt="Estilo de vida VÍVA" style="width: 100%; border-radius: 12px;">
-        </div>
-      </div>
-    </section>
+      <img src="sobre.jpg.JPG" alt="Estilo de vida VÍVA" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
+      <p style="margin-bottom: 15px;">A VÍVA nasceu do propósito de mostrar que pequenas atitudes geram grandes diferenças. Em meio à correria do dia a dia, percebemos que um dos cuidados mais básicos e essenciais com a saúde costuma ser deixado de lado: a hidratação adequada.</p>
+      <p>Foi a partir dessa necessidade que criamos a VÍVA — uma garrafa térmica inteligente de 750ml projetada para te lembrar de beber água no momento certo, cuidando da sua saúde e bem-estar todos os dias. Acreditamos firmemente que sua saúde também é produtividade.</p>
+    </div>
+  </div>
 
-    <!-- BENEFÍCIOS -->
-    <section id="beneficios" class="section-card">
+  <!-- ABA 3: BENEFÍCIOS -->
+  <div id="beneficios-tab" class="tab-content">
+    <div class="section-card">
       <h2 class="section-title">Benefícios da Garrafa VÍVA</h2>
       <div class="grid-benefits">
         <div class="benefit-item">
-          <h4>Capacidade Ideal (750ml)</h4>
-          <p>Tamanho perfeito para te acompanhar durante todo o dia sem a necessidade de recargas constantes.</p>
+          <h4 style="color: var(--primary-blue);">Capacidade Ideal (750ml)</h4>
+          <p style="font-size: 0.85rem;">Tamanho perfeito para te acompanhar durante todo o dia sem recargas constantes.</p>
         </div>
         <div class="benefit-item">
-          <h4>Lembrete Visual Inteligente</h4>
-          <p>A gota luminosa na tampa acende para avisar de forma suave exatamente quando é hora de beber água.</p>
+          <h4 style="color: var(--primary-blue);">Lembrete Visual LED</h4>
+          <p style="font-size: 0.85rem;">A gota luminosa na tampa acende para avisar quando é hora de beber água.</p>
         </div>
         <div class="benefit-item">
-          <h4>Conectividade e App Exclusivo</h4>
-          <p>Sincronize com o aplicativo VÍVA para acompanhar seu consumo diário e definir metas personalizadas.</p>
+          <h4 style="color: var(--primary-blue);">App Exclusivo</h4>
+          <p style="font-size: 0.85rem;">Acompanhe seu consumo diário e defina metas personalizadas.</p>
         </div>
         <div class="benefit-item">
-          <h4>Conservação Térmica Avançada</h4>
-          <p>Mantenha sua bebida gelada por até 24 horas ou quente por até 12 horas.</p>
+          <h4 style="color: var(--primary-blue);">Térmica Avançada</h4>
+          <p style="font-size: 0.85rem;">Gelado por até 24 horas ou quente por até 12 horas.</p>
         </div>
         <div class="benefit-item">
-          <h4>Bateria de Alta Autonomia</h4>
-          <p>Desfrute de até 30 dias de uso contínuo com apenas uma única carga via USB-C.</p>
+          <h4 style="color: var(--primary-blue);">Autonomia de 30 dias</h4>
+          <p style="font-size: 0.85rem;">Bateria de longa duração recarregável via USB-C.</p>
         </div>
         <div class="benefit-item">
-          <h4>Segurança Livre de BPA</h4>
-          <p>Produto 100% livre de BPA (BPA Free), garantindo total segurança para o seu consumo.</p>
+          <h4 style="color: var(--primary-blue);">Livre de BPA</h4>
+          <p style="font-size: 0.85rem;">100% seguro para a sua saúde e livre de odores.</p>
         </div>
       </div>
-    </section>
-
+    </div>
   </div>
 
-  <!-- RODAPÉ / CONTATO -->
-  <footer id="contato">
-    <p style="margin-bottom: 20px;">Dúvidas, suporte ou informações sobre o seu pedido? Estamos aqui para ajudar!</p>
-    <div class="contact-info">
-      <div>📧 E-mail: atendimento@viva.com.br</div>
-      <div>📱 WhatsApp: (19) 70000-7070</div>
-      <div>📸 Instagram: @viva.oficial</div>
+  <!-- ABA 4: CONTATO -->
+  <div id="contato-tab" class="tab-content">
+    <div class="section-card" style="text-align: center;">
+      <h2 class="section-title">Fale Conosco</h2>
+      <p style="margin-bottom: 15px;">Dúvidas ou informações sobre o seu pedido?</p>
+      <p>📧 <strong>E-mail:</strong> atendimento@viva.com.br</p>
+      <p>📱 <strong>WhatsApp:</strong> (19) 70000-7070</p>
+      <p>📸 <strong>Instagram:</strong> @viva.oficial</p>
     </div>
-    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 20px;">Horário de Atendimento: Segunda a Sexta, das 8h às 18h | © VÍVA. Todos os direitos reservados.</p>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>© VÍVA. Todos os direitos reservados.</p>
   </footer>
 
+  <!-- SCRIPT PARA TROCAR DE ABA -->
   <script>
-    function changeColor(imgSrc, colorName) {
+    function switchTab(tabId) {
+      // Oculta todas as abas
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Desmarca todos os botões do menu
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Ativa a aba e o botão selecionado
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function changeColor(imgSrc, colorName, element) {
       document.getElementById('main-image').src = imgSrc;
       document.getElementById('selected-color-title').innerText = 'Cor selecionada: ' + colorName;
-      
+
       const buttons = document.querySelectorAll('.color-btn');
       buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
+      element.classList.add('active');
     }
   </script>
 </body>
