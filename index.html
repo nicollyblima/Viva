@@ -35,7 +35,7 @@
     header {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(10px);
       z-index: 1000;
       border-bottom: 1px solid #e5e7eb;
@@ -46,7 +46,7 @@
     }
 
     .logo-container img {
-      height: 38px;
+      height: 40px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -54,19 +54,19 @@
 
     nav {
       display: flex;
-      gap: 20px;
+      gap: 15px;
       align-items: center;
     }
 
     nav a {
       text-decoration: none;
       color: var(--text-dark);
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.9rem;
       transition: color 0.2s;
     }
 
-    nav a:hover, nav a.active {
+    nav a:hover {
       color: var(--accent-blue);
     }
 
@@ -79,238 +79,220 @@
       font-size: 0.85rem;
       text-decoration: none;
       transition: background 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .btn-buy-nav:hover {
       background-color: var(--primary-blue);
     }
 
-    /* HERO SECTION */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 60px 8%;
-      background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-      min-height: 80vh;
-      gap: 40px;
+    /* CONTAINER PRINCIPAL */
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 20px;
     }
 
-    .hero-text h2 {
-      color: var(--accent-blue);
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      letter-spacing: 1.5px;
-      margin-bottom: 10px;
-    }
-
-    .hero-text h1 {
-      font-size: 2.8rem;
-      color: var(--primary-blue);
-      line-height: 1.2;
-      margin-bottom: 20px;
-      font-weight: 800;
-    }
-
-    .hero-text p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      max-width: 480px;
-    }
-
-    .btn-hero {
-      display: inline-block;
-      background-color: var(--accent-blue);
-      color: var(--white);
-      padding: 14px 28px;
-      border-radius: 25px;
-      font-weight: 700;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0, 102, 204, 0.3);
-      transition: transform 0.2s;
-    }
-
-    .btn-hero:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero-features {
-      display: flex;
-      gap: 15px;
-      margin-top: 25px;
-      font-size: 0.85rem;
-      color: var(--text-dark);
-      font-weight: 600;
-    }
-
-    .hero-image-container img {
-      width: 100%;
-      max-width: 500px;
+    /* BANNER PRINCIPAL */
+    .hero-banner {
+      background: var(--white);
       border-radius: 16px;
-      display: block;
-      margin: 0 auto;
-    }
-
-    /* SEÇÃO SOBRE A MARCA */
-    .section-about {
-      padding: 80px 8%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-      background-color: var(--white);
-    }
-
-    .about-image img {
-      width: 100%;
-      border-radius: 16px;
-      object-fit: cover;
-    }
-
-    .about-content h3 {
-      color: var(--accent-blue);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-
-    .about-content h2 {
-      font-size: 2.2rem;
-      color: var(--primary-blue);
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    .about-content p {
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-
-    /* SEÇÃO PRODUTOS */
-    .section-products {
-      padding: 80px 8%;
-      background-color: var(--bg-light);
-    }
-
-    .section-title {
-      text-align: center;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
       margin-bottom: 40px;
     }
 
-    .section-title h2 {
+    .hero-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* SEÇÃO DE PRODUTO E COMPRA */
+    .product-section {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .product-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .gallery { text-align: center; }
+    
+    .main-view {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .color-picker {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .color-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 3px solid #e5e7eb;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .color-btn:hover, .color-btn.active {
+      transform: scale(1.15);
+      border-color: var(--accent-blue);
+    }
+
+    .btn-rosa { background-color: #e5b3b3; }
+    .btn-azul { background-color: #1e3a8a; }
+    .btn-branca { background-color: #ffffff; border-color: #ccc; }
+    .btn-preta { background-color: #111111; }
+
+    .thumbs-details {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .thumbs-details img {
+      width: 75px;
+      height: 75px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-title {
       font-size: 2rem;
       color: var(--primary-blue);
+      margin-bottom: 10px;
     }
 
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-    }
+    .price-box { margin: 15px 0; }
 
-    .product-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-
-    .product-card h3 {
-      font-size: 1.1rem;
-      color: var(--primary-blue);
-      margin-bottom: 6px;
-    }
-
-    .product-card p {
-      font-size: 0.85rem;
+    .old-price {
+      text-decoration: line-through;
       color: var(--text-muted);
-      margin-bottom: 15px;
+      font-size: 1.1rem;
     }
 
-    .btn-card {
-      display: inline-block;
-      width: 100%;
-      padding: 8px 0;
-      border: 1px solid var(--accent-blue);
+    .current-price {
+      font-size: 2.2rem;
       color: var(--accent-blue);
-      border-radius: 20px;
-      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .installments {
+      color: #059669;
       font-weight: 600;
-      font-size: 0.85rem;
-      transition: all 0.2s;
+      font-size: 0.95rem;
     }
 
-    .btn-card:hover {
-      background-color: var(--accent-blue);
+    .buy-btn {
+      background: var(--accent-blue);
       color: var(--white);
-    }
-
-    /* GALERIA DE DETALHES */
-    .details-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .details-gallery img {
+      border: none;
+      padding: 16px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
       width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .buy-btn:hover { background: var(--primary-blue); }
+
+    /* SEÇÕES CARD */
+    .section-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+      text-align: center;
+      border-bottom: 2px solid var(--bg-light);
+      padding-bottom: 10px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .grid-benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .benefit-item {
+      background: var(--bg-light);
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent-blue);
+    }
+
+    .benefit-item h4 {
+      color: var(--primary-blue);
+      margin-bottom: 8px;
     }
 
     /* FOOTER */
     footer {
-      background-color: var(--primary-blue);
+      background: var(--primary-blue);
       color: var(--white);
-      padding: 40px 8%;
+      padding: 40px 20px 20px;
       text-align: center;
-      font-size: 0.9rem;
+      margin-top: 50px;
     }
 
-    /* RESPONSIVIDADE MOBILE */
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
     @media (max-width: 768px) {
       header {
         flex-direction: column;
         gap: 12px;
       }
-
       nav {
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 12px;
-      }
-
-      .hero, .section-about {
-        grid-template-columns: 1fr;
-        padding: 40px 5%;
-        text-align: center;
-      }
-
-      .hero-text h1 {
-        font-size: 2rem;
-      }
-
-      .hero-features {
         justify-content: center;
       }
     }
@@ -318,103 +300,130 @@
 </head>
 <body>
 
-  <!-- HEADER / NAVEGAÇÃO -->
+  <!-- HEADER -->
   <header>
     <div class="logo-container">
       <img src="logo.png.JPG" alt="VÍVA Logo">
     </div>
     <nav>
-      <a href="#inicio" class="active">Início</a>
-      <a href="#sobre">Sobre a Marca</a>
-      <a href="#produtos">Produtos</a>
+      <a href="#produto">Produto</a>
+      <a href="#sobre">Sobre Nós</a>
       <a href="#beneficios">Benefícios</a>
-      <a href="#tecnologia">Tecnologia</a>
-      <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
     </nav>
-    <a href="#produtos" class="btn-buy-nav">Comprar agora 🛒</a>
+    <a href="#produto" class="btn-buy-nav">Comprar Agora</a>
   </header>
 
-  <!-- SEÇÃO INÍCIO (HERO) -->
-  <section id="inicio" class="hero">
-    <div class="hero-text">
-      <h2>VÍVA</h2>
-      <h1>Pequenas atitudes,<br>grandes diferenças.</h1>
-      <p>Uma garrafa térmica inteligente que te lembra de beber água, cuidando da sua saúde e bem-estar todos os dias.</p>
-      <a href="#produtos" class="btn-hero">Comprar agora &rarr;</a>
-      
-      <div class="hero-features">
-        <span>💧 Mais saúde</span>
-        <span>📈 Mais produtividade</span>
-        <span>❤️️ Mais bem-estar</span>
-      </div>
-    </div>
-    <div class="hero-image-container">
-      <img src="banner.png.JPG" alt="Garrafa VÍVA Azul">
-    </div>
-  </section>
+  <div class="container">
 
-  <!-- SEÇÃO SOBRE A MARCA -->
-  <section id="sobre" class="section-about">
-    <div class="about-image">
-      <img src="detalhe1.png.JPG" alt="Pessoa segurando garrafa VÍVA">
-    </div>
-    <div class="about-content">
-      <h3>SOBRE A MARCA</h3>
-      <h2>VÍVA é mais do que uma garrafa.</h2>
-      <p>Somos uma marca que acredita no poder das pequenas atitudes. A VÍVA nasceu para ajudar você a criar um hábito mais saudável, lembrando de beber água ao longo do dia de forma simples, inteligente e elegante.</p>
-      <a href="#beneficios" class="btn-card" style="display: inline-block; width: auto; padding: 10px 24px;">Conheça nossa história &rarr;</a>
-    </div>
-  </section>
-
-  <!-- SEÇÃO PRODUTOS -->
-  <section id="produtos" class="section-products">
-    <div class="section-title">
-      <h2>Nossos Produtos</h2>
+    <!-- BANNER PRINCIPAL -->
+    <div class="hero-banner">
+      <img src="banner.png.JPG" alt="VÍVA - Pequenas atitudes, grandes diferenças">
     </div>
 
-    <div class="products-grid">
-      <div class="product-card">
-        <img src="azul.png.PNG" alt="VÍVA Azul">
-        <h3>VÍVA Azul</h3>
-        <p>Tecnologia e estilo para o seu dia a dia.</p>
-        <a href="#" class="btn-card">🛒 Comprar agora</a>
+    <!-- PRODUTO -->
+    <section id="produto" class="product-section">
+      <div class="gallery">
+        <img id="main-image" class="main-view" src="rosa.png.JPG" alt="Garrafa Térmica Inteligente VÍVA">
+        
+        <p style="margin-bottom: 10px; font-weight: 600;">Selecione a sua cor:</p>
+        <div class="color-picker">
+          <button class="color-btn btn-rosa active" onclick="changeColor('rosa.png.JPG', 'Rosé')"></button>
+          <button class="color-btn btn-azul" onclick="changeColor('azul.png.PNG', 'Azul')"></button>
+          <button class="color-btn btn-branca" onclick="changeColor('branca.png.JPG', 'Branco')"></button>
+          <button class="color-btn btn-preta" onclick="changeColor('preta.png.JPG', 'Preto')"></button>
+        </div>
+
+        <p style="margin-bottom: 10px; font-weight: 600;">Detalhes do Produto:</p>
+        <div class="thumbs-details">
+          <img src="bocal.jpg.PNG" alt="Bocal Inox">
+          <img src="carregador.jpg.JPG" alt="Carregador USB-C">
+        </div>
       </div>
 
-      <div class="product-card">
-        <img src="rosa.png.JPG" alt="VÍVA Rosa">
-        <h3>VÍVA Rosa</h3>
-        <p>Leveza e elegância em todos os momentos.</p>
-        <a href="#" class="btn-card">🛒 Comprar agora</a>
-      </div>
+      <div class="product-details">
+        <h1 class="product-title">Garrafa Térmica Inteligente VÍVA — 750ml</h1>
+        <p style="color: var(--text-muted); font-size: 1.1rem;" id="selected-color-title">Cor selecionada: Rosé</p>
+        
+        <div class="price-box">
+          <span class="old-price">De R$ 249,90</span><br>
+          <span class="current-price">R$ 199,90</span>
+          <div class="installments">ou em até 3x de R$ 66,63 sem juros no cartão</div>
+        </div>
 
-      <div class="product-card">
-        <img src="branca.png.JPG" alt="VÍVA Branca">
-        <h3>VÍVA Branca</h3>
-        <p>Minimalista e versátil para qualquer rotina.</p>
-        <a href="#" class="btn-card">🛒 Comprar agora</a>
-      </div>
+        <p>Transforme sua rotina com hidratação inteligente, tecnologia e estilo. A VÍVA combina isolamento térmico de alta performance com aviso luminoso e conexão via aplicativo para manter seu corpo na máxima performance.</p>
 
-      <div class="product-card">
-        <img src="preta.png.JPG" alt="VÍVA Preta">
-        <h3>VÍVA Preta</h3>
-        <p>Sofisticação que te acompanha sempre.</p>
-        <a href="#" class="btn-card">🛒 Comprar agora</a>
+        <button class="buy-btn">COMPRAR AGORA</button>
       </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section id="sobre" class="section-card">
+      <h2 class="section-title">Sobre Nós</h2>
+      <div class="grid-2">
+        <div>
+          <p style="margin-bottom: 15px;">A VÍVA nasceu do propósito de mostrar que pequenas atitudes geram grandes diferenças. Em meio à correria do dia a dia, percebemos que um dos cuidados mais básicos e essenciais com a saúde costuma ser deixado de lado: a hidratação adequada.</p>
+          <p>Foi a partir dessa necessidade que criamos a VÍVA — uma garrafa térmica inteligente de 750ml projetada para te lembrar de beber água no momento certo, cuidando da sua saúde e bem-estar todos os dias. Acreditamos firmemente que sua saúde também é produtividade.</p>
+        </div>
+        <div>
+          <img src="sobre.jpg.JPG" alt="Estilo de vida VÍVA" style="width: 100%; border-radius: 12px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" class="section-card">
+      <h2 class="section-title">Benefícios da Garrafa VÍVA</h2>
+      <div class="grid-benefits">
+        <div class="benefit-item">
+          <h4>Capacidade Ideal (750ml)</h4>
+          <p>Tamanho perfeito para te acompanhar durante todo o dia sem a necessidade de recargas constantes.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Lembrete Visual Inteligente</h4>
+          <p>A gota luminosa na tampa acende para avisar de forma suave exatamente quando é hora de beber água.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Conectividade e App Exclusivo</h4>
+          <p>Sincronize com o aplicativo VÍVA para acompanhar seu consumo diário e definir metas personalizadas.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Conservação Térmica Avançada</h4>
+          <p>Mantenha sua bebida gelada por até 24 horas ou quente por até 12 horas.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Bateria de Alta Autonomia</h4>
+          <p>Desfrute de até 30 dias de uso contínuo com apenas uma única carga via USB-C.</p>
+        </div>
+        <div class="benefit-item">
+          <h4>Segurança Livre de BPA</h4>
+          <p>Produto 100% livre de BPA (BPA Free), garantindo total segurança para o seu consumo.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- RODAPÉ / CONTATO -->
+  <footer id="contato">
+    <p style="margin-bottom: 20px;">Dúvidas, suporte ou informações sobre o seu pedido? Estamos aqui para ajudar!</p>
+    <div class="contact-info">
+      <div>📧 E-mail: atendimento@viva.com.br</div>
+      <div>📱 WhatsApp: (19) 70000-7070</div>
+      <div>📸 Instagram: @viva.oficial</div>
     </div>
-
-    <!-- GALERIA DE DETALHES DOS ACESSÓRIOS -->
-    <div class="details-gallery">
-      <img src="bocal.jpg.PNG" alt="Bocal da garrafa">
-      <img src="carregador.jpg.JPG" alt="Carregador magnético">
-      <img src="detalhe2.png.JPG" alt="Mão segurando a garrafa">
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 VÍVA - Todos os direitos reservados. Garrafa Térmica Inteligente.</p>
+    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 20px;">Horário de Atendimento: Segunda a Sexta, das 8h às 18h | © VÍVA. Todos os direitos reservados.</p>
   </footer>
 
+  <script>
+    function changeColor(imgSrc, colorName) {
+      document.getElementById('main-image').src = imgSrc;
+      document.getElementById('selected-color-title').innerText = 'Cor selecionada: ' + colorName;
+      
+      const buttons = document.querySelectorAll('.color-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
