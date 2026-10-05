@@ -32,7 +32,7 @@
       line-height: 1.6;
     }
 
-    /* HEADER & NAVEGAÇÃO HORIZONTAL ESTILO DESKTOP */
+    /* HEADER & NAVEGAÇÃO HORIZONTAL */
     header {
       position: sticky;
       top: 0;
@@ -47,7 +47,7 @@
     }
 
     .logo-container img {
-      height: 30px;
+      height: 32px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -55,7 +55,7 @@
 
     nav {
       display: flex;
-      gap: 20px;
+      gap: 25px;
       align-items: center;
     }
 
@@ -64,7 +64,7 @@
       border: none;
       color: var(--text-muted);
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       padding: 6px 4px;
       cursor: pointer;
       transition: color 0.2s;
@@ -355,17 +355,16 @@
         padding: 10px 15px;
       }
       nav {
-        gap: 10px;
+        gap: 12px;
         overflow-x: auto;
-        max-width: 100%;
-        padding-bottom: 4px;
+        max-width: 50%;
       }
       .tab-btn {
         font-size: 0.8rem;
         white-space: nowrap;
       }
       .header-cta-btn {
-        padding: 6px 12px;
+        padding: 6px 10px;
         font-size: 0.75rem;
       }
     }
@@ -373,17 +372,15 @@
 </head>
 <body>
 
-  <!-- CABEÇALHO (ESTILO IMAGEM 2) -->
+  <!-- CABEÇALHO -->
   <header>
     <div class="logo-container">
       <img src="logo.PNG" alt="VÍVA Logo">
     </div>
     <nav>
-      <button class="tab-btn active" onclick="switchTab('sobre-tab', this)">Início</button>
-      <button class="tab-btn" onclick="switchTab('sobre-tab', this)">Sobre a Marca</button>
+      <button class="tab-btn active" onclick="switchTab('sobre-tab', this)">Sobre Nós</button>
       <button class="tab-btn" onclick="switchTab('produtos-tab', this)">Produtos</button>
       <button class="tab-btn" onclick="switchTab('beneficios-tab', this)">Benefícios</button>
-      <button class="tab-btn" onclick="switchTab('beneficios-tab', this)">Tecnologia</button>
       <button class="tab-btn" onclick="switchTab('contato-tab', this)">Contato</button>
     </nav>
     <button class="header-cta-btn" onclick="switchTab('produtos-tab', null)">
@@ -391,7 +388,7 @@
     </button>
   </header>
 
-  <!-- ABA 1: SOBRE NÓS / INÍCIO -->
+  <!-- ABA 1: SOBRE NÓS -->
   <div id="sobre-tab" class="tab-content active">
     <div class="hero-banner">
       <img src="banner.JPG" alt="VÍVA Banner">
